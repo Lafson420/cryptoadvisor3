@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">cryptoadvisor3</string>
+    <string name="wallet_total">0.00 USD</string>
+    <string name="wallet_add_button">DODAJ KRYPTOWALUTĘ</string>
+</resources>

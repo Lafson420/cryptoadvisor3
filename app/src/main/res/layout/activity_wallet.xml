@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipeRefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <!-- Górny eliptyczny licznik wartości portfela -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/ellipse_background"
+            android:padding="16dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="32dp">
+
+            <TextView
+                android:id="@+id/totalTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00 USD"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp" />
+
+            <Spinner
+                android:id="@+id/currencySpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:popupBackground="#222222"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+
+        <!-- Lista kryptowalut w portfelu -->
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="24dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="12dp"
+            android:scrollbars="none" />
+
+        <!-- Przycisk dodawania kryptowalut -->
+        <Button
+            android:id="@+id/addCryptoButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DODAJ KRYPTOWALUTĘ"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#9C27B0"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:padding="12dp" />
+
+    </LinearLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

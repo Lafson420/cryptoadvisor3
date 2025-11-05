@@ -1,0 +1,35 @@
+<resources>
+
+    <!-- Styl dla przycisków -->
+    <style name="WhiteTextButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="backgroundTint">#1E90FF</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+
+    <!-- Styl dla Spinnerów -->
+    <style name="WhiteTextSpinner" parent="Widget.AppCompat.Spinner.Underlined">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:popupBackground">#161B22</item>
+        <item name="android:backgroundTint">#1E90FF</item>
+    </style>
+
+    <!-- Styl dla ActionBar -->
+    <style name="WhiteTextActionBar" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">#0D1117</item>
+        <item name="titleTextStyle">@style/WhiteTextActionBarTitle</item>
+    </style>
+
+    <!-- Styl tytułu ActionBar -->
+    <style name="WhiteTextActionBarTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="DarkDialog" parent="ThemeOverlay.AppCompat.Dialog.Alert">
+        <item name="android:background">#161616</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+
+</resources>

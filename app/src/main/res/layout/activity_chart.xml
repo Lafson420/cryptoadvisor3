@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:padding="16dp">
+
+    <!-- Sekcja wyboru parametrów -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="12dp">
+
+        <!-- Spinner waluty -->
+        <Spinner
+            android:id="@+id/spinnerCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:minHeight="48dp"
+            android:layout_marginEnd="16dp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:backgroundTint="#7B2FF7"
+            android:popupBackground="#161B22"
+            android:textAlignment="center"
+            android:spinnerMode="dropdown" />
+
+        <!-- Spinner dni -->
+        <Spinner
+            android:id="@+id/spinnerDays"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:minHeight="48dp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:backgroundTint="#7B2FF7"
+            android:popupBackground="#161B22"
+            android:textAlignment="center"
+            android:spinnerMode="dropdown" />
+    </LinearLayout>
+
+    <!-- Wykres -->
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/lineChart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:background="#000000" />
+</LinearLayout>

@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:padding="24dp"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <Button
+        android:id="@+id/buttonCrypto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kursy kryptowalut"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#6200EE" />
+
+    <Button
+        android:id="@+id/buttonEducation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Materiały edukacyjne"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#6200EE" />
+
+    <Button
+        android:id="@+id/buttonWallet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mój portfel"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#6200EE" />
+</LinearLayout>

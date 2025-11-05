@@ -1,0 +1,31 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.Cryptoadvisor3" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Kolory podstawowe -->
+        <item name="colorPrimary">#0D1117</item>
+        <item name="colorPrimaryVariant">#161B22</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+
+        <item name="colorSecondary">#1E90FF</item>
+        <item name="colorSecondaryVariant">#1E90FF</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+
+        <!-- Kolor tła -->
+        <item name="android:windowBackground">#0D1117</item>
+
+        <!-- Kolory tekstu -->
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <item name="android:textColorSecondary">#CCCCCC</item>
+
+        <!-- Pola tekstowe -->
+        <item name="android:textColorHint">#AAAAAA</item>
+        <item name="android:editTextColor">#FFFFFF</item>
+
+        <!-- Przyciski, spinnery i toolbar -->
+        <item name="buttonStyle">@style/WhiteTextButton</item>
+        <item name="spinnerStyle">@style/WhiteTextSpinner</item>
+        <item name="actionBarStyle">@style/WhiteTextActionBar</item>
+
+    </style>
+
+</resources>
