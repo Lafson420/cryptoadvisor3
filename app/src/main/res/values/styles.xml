@@ -30,6 +30,34 @@
         <item name="android:background">#161616</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
+    <style name="SpinnerTheme" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:popupBackground">#1C1C1C</item>
+        <item name="android:backgroundTint">#9C27B0</item>
+    </style>
+
+
+    <style name="SpinnerDropdownList" parent="Widget.AppCompat.ListView.DropDown">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">#222222</item>
+    </style>
+    <style name="CustomSpinnerTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:popupBackground">#1C1C1C</item>
+        <item name="android:backgroundTint">#9C27B0</item>
+    </style>
+
+    <style name="SpinnerPurpleUnderline" parent="@android:style/Widget.Spinner">
+        <item name="android:background">@drawable/spinner_item_bg</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:popupBackground">#1C1C1C</item>
+    </style>
+    <style name="TransparentSpinner" parent="Widget.AppCompat.Spinner">
+        <item name="android:background">@drawable/spinner_item_bg</item>
+        <item name="android:popupBackground">#000000</item>
+    </style>
+
+
 
 
 </resources>

@@ -31,11 +31,11 @@ class WalletAdapter(private val context: Context, private val walletList: List<W
         coinAmount.text = "Ilość: ${item.amount}"
         coinValue.text = String.format("%.2f USD", item.amount * item.valueUsd)
 
-        // Ładowanie ikony z CoinGecko (jeśli istnieje)
+        // Ładowanie ikony z CoinGecko (bez imageId)
         val iconUrl = "https://assets.coingecko.com/coins/images/${item.id}.png"
         Glide.with(context)
             .load(iconUrl)
-            .placeholder(R.drawable.ic_placeholder)
+            .placeholder(R.drawable.ic_placeholder_crypto)
             .into(coinImage)
 
         return view

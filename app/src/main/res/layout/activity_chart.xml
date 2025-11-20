@@ -1,46 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
-    android:padding="16dp">
+    android:padding="12dp"
+    android:paddingTop="?attr/actionBarSize"
+    android:fitsSystemWindows="true"
+    android:background="#000000">
 
-    <!-- Sekcja wyboru parametrów -->
+
+<!-- Pasek górny: ikona, nazwa, aktualna cena -->
     <LinearLayout
+        android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginBottom="12dp">
+        android:gravity="center_vertical">
 
-        <!-- Spinner waluty -->
-        <Spinner
-            android:id="@+id/spinnerCurrency"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:minHeight="48dp"
-            android:layout_marginEnd="16dp"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="8dp"
-            android:backgroundTint="#7B2FF7"
-            android:popupBackground="#161B22"
-            android:textAlignment="center"
-            android:spinnerMode="dropdown" />
+        <ImageView
+            android:id="@+id/cryptoIcon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/crypto_icon_desc" />
 
-        <!-- Spinner dni -->
-        <Spinner
-            android:id="@+id/spinnerDays"
+        <TextView
+            android:id="@+id/cryptoNameTextView"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/crypto_name_placeholder"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/cryptoPriceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/crypto_price_placeholder"
+            android:textColor="#9C27B0"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Spinnery po prawej stronie -->
+    <LinearLayout
+        android:id="@+id/spinnerContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topBar"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="4dp">
+
+        <Spinner
+            android:id="@+id/daysSpinner"
+            android:layout_width="65dp"
             android:layout_height="48dp"
-            android:minHeight="48dp"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="8dp"
-            android:backgroundTint="#7B2FF7"
-            android:popupBackground="#161B22"
-            android:textAlignment="center"
-            android:spinnerMode="dropdown" />
+            android:layout_marginEnd="6dp"
+            android:spinnerMode="dropdown"
+            android:background="@android:color/transparent" />
+
+        <Spinner
+            android:id="@+id/currencySpinner"
+            android:layout_width="65dp"
+            android:layout_height="48dp"
+            android:spinnerMode="dropdown"
+            android:background="@android:color/transparent" />
     </LinearLayout>
 
     <!-- Wykres -->
@@ -48,6 +74,7 @@
         android:id="@+id/lineChart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="8dp"
-        android:background="#000000" />
-</LinearLayout>
+        android:layout_below="@id/spinnerContainer"
+        android:layout_marginTop="12dp" />
+
+</RelativeLayout>

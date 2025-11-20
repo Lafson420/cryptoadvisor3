@@ -2,8 +2,8 @@ package com.example.cryptoadvisor3
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.AdapterView
 import android.widget.ListView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import retrofit2.Call
 import retrofit2.Callback
@@ -11,49 +11,45 @@ import retrofit2.Response
 
 class CryptoListActivity : AppCompatActivity() {
 
-    private lateinit var listView: ListView
-    private lateinit var cryptoList: MutableList<CoinListItem>
-    private lateinit var adapter: CryptoAdapter
+    private lateinit var cryptoListView: ListView
+    private lateinit var adapter: CryptoListAdapter
+    private val cryptoList = mutableListOf<CryptoCurrency>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_crypto_list)
 
-        listView = findViewById(R.id.cryptoListView)
-        cryptoList = mutableListOf()
-        adapter = CryptoAdapter(this, cryptoList)
-        listView.adapter = adapter
+        cryptoListView = findViewById(R.id.cryptoListView)
+        adapter = CryptoListAdapter(this, cryptoList)
+        cryptoListView.adapter = adapter
 
-        loadTopCoins()
-
-        listView.setOnItemClickListener { _, _, position, _ ->
-            val selectedCoin = cryptoList[position]
+        cryptoListView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
+            val selectedCrypto = cryptoList[position]
             val intent = Intent(this, ChartActivity::class.java)
-            intent.putExtra("coin_id", selectedCoin.id)
+            intent.putExtra("cryptoId", selectedCrypto.id)
+            intent.putExtra("cryptoName", selectedCrypto.name)
+            intent.putExtra("cryptoImage", selectedCrypto.image)
             startActivity(intent)
         }
+
+        fetchCryptoData()
     }
 
-    private fun loadTopCoins() {
-        val apiService = ApiClient.apiService
-        val call = apiService.getTopCoins("usd")
-
-        call.enqueue(object : Callback<List<CoinListItem>> {
-            override fun onResponse(
-                call: Call<List<CoinListItem>>,
-                response: Response<List<CoinListItem>>
-            ) {
-                if (response.isSuccessful && response.body() != null) {
-                    cryptoList.clear()
-                    cryptoList.addAll(response.body()!!)
-                    adapter.notifyDataSetChanged()
-                } else {
-                    Toast.makeText(this@CryptoListActivity, "Błąd pobierania danych", Toast.LENGTH_SHORT).show()
+    private fun fetchCryptoData() {
+        val api = RetrofitInstance.api
+        api.getTopCoins("usd").enqueue(object : Callback<List<CryptoCurrency>> {
+            override fun onResponse(call: Call<List<CryptoCurrency>>, response: Response<List<CryptoCurrency>>) {
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        cryptoList.clear()
+                        cryptoList.addAll(it)
+                        adapter.notifyDataSetChanged()
+                    }
                 }
             }
 
-            override fun onFailure(call: Call<List<CoinListItem>>, t: Throwable) {
-                Toast.makeText(this@CryptoListActivity, "Błąd połączenia z API", Toast.LENGTH_SHORT).show()
+            override fun onFailure(call: Call<List<CryptoCurrency>>, t: Throwable) {
+                t.printStackTrace()
             }
         })
     }

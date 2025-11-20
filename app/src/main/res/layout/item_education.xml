@@ -3,21 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="12dp">
+    android:padding="16dp"
+    android:background="#111111"
+    android:layout_marginBottom="12dp"
+    android:elevation="4dp">
 
     <TextView
         android:id="@+id/textViewTitle"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tytuł"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:paddingBottom="6dp" />
 
     <TextView
         android:id="@+id/textViewDescription"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Opis materiału"
-        android:textSize="14sp"
-        android:layout_marginTop="4dp"/>
+        android:textColor="#CCCCCC"
+        android:textSize="14sp" />
 </LinearLayout>

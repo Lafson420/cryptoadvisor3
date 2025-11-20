@@ -2,4 +2,11 @@
     <string name="app_name">cryptoadvisor3</string>
     <string name="wallet_total">0.00 USD</string>
     <string name="wallet_add_button">DODAJ KRYPTOWALUTĘ</string>
+    <string name="placeholder_crypto_name">Bitcoin</string>
+    <string name="placeholder_crypto_desc">Ikona kryptowaluty</string>
+    <string name="crypto_icon_desc">Ikona kryptowaluty</string>
+    <string name="bitcoin">Bitcoin</string>
+    <string name="crypto_name_placeholder">Crypto</string>
+    <string name="crypto_price_placeholder">0.00 USD</string>
+
 </resources>

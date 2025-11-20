@@ -68,7 +68,10 @@ class AddCryptoActivity : AppCompatActivity() {
         val call = apiService.searchCoins(query)
 
         call.enqueue(object : Callback<SearchResponse> {
-            override fun onResponse(call: Call<SearchResponse>, response: Response<SearchResponse>) {
+            override fun onResponse(
+                call: Call<SearchResponse>,
+                response: Response<SearchResponse>
+            ) {
                 if (response.isSuccessful && response.body() != null) {
                     val coinIds = response.body()!!.coins.map { it.id }.joinToString(",")
                     if (coinIds.isNotEmpty()) fetchCoinPrices(coinIds)
@@ -76,7 +79,11 @@ class AddCryptoActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<SearchResponse>, t: Throwable) {
-                Toast.makeText(this@AddCryptoActivity, "Błąd wyszukiwania", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@AddCryptoActivity,
+                    "Błąd wyszukiwania",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         })
     }
@@ -86,7 +93,10 @@ class AddCryptoActivity : AppCompatActivity() {
         val call = apiService.getTopCoins("usd", perPage = 250)
 
         call.enqueue(object : Callback<List<CoinListItem>> {
-            override fun onResponse(call: Call<List<CoinListItem>>, response: Response<List<CoinListItem>>) {
+            override fun onResponse(
+                call: Call<List<CoinListItem>>,
+                response: Response<List<CoinListItem>>
+            ) {
                 if (response.isSuccessful && response.body() != null) {
                     val coins = response.body()!!.filter { ids.contains(it.id) }
                     searchResults.clear()
@@ -96,9 +106,19 @@ class AddCryptoActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<List<CoinListItem>>, t: Throwable) {
-                Toast.makeText(this@AddCryptoActivity, "Błąd pobierania cen", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@AddCryptoActivity,
+                    "Błąd pobierania cen",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         })
+    }
+
+    private fun extractImageId(url: String): Int {
+        // przykład URL: https://assets.coingecko.com/coins/images/1/large/bitcoin.png
+        val regex = Regex("coins/images/(\\d+)/")
+        return regex.find(url)?.groupValues?.get(1)?.toIntOrNull() ?: 1
     }
 
     private fun setupAddButton() {
@@ -116,14 +136,20 @@ class AddCryptoActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val intent = Intent()
-            intent.putExtra("id", selectedCoin!!.id)
-            intent.putExtra("name", selectedCoin!!.name)
-            intent.putExtra("symbol", selectedCoin!!.symbol)
-            intent.putExtra("amount", amount)
-            intent.putExtra("valueUsd", selectedCoin!!.current_price)
+            val coin = selectedCoin!!
 
-            Toast.makeText(this, "Dodano ${selectedCoin!!.name}", Toast.LENGTH_SHORT).show()
+            // wyciągamy numeryczne ID ikonki z pola image
+            val imageId = extractImageId(coin.image)
+
+            val intent = Intent()
+            intent.putExtra("id", coin.id)                // tekstowe id, np. "bitcoin"
+            intent.putExtra("imageId", imageId)           // numeryczne id obrazka
+            intent.putExtra("name", coin.name)
+            intent.putExtra("symbol", coin.symbol)
+            intent.putExtra("amount", amount)
+            intent.putExtra("valueUsd", coin.current_price)
+
+            Toast.makeText(this, "Dodano ${coin.name}", Toast.LENGTH_SHORT).show()
             setResult(Activity.RESULT_OK, intent)
             finish()
         }

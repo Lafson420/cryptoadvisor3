@@ -1,7 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="currencies">
+
+    <!-- Zakres dni wykresu -->
+    <string-array name="days_array">
+        <item>1</item>
+        <item>7</item>
+        <item>14</item>
+        <item>30</item>
+        <item>90</item>
+        <item>180</item>
+        <item>365</item>
+    </string-array>
+
+    <!-- Waluty -->
+    <string-array name="currency_array">
         <item>usd</item>
         <item>eur</item>
         <item>pln</item>
     </string-array>
+
 </resources>

@@ -1,7 +1,8 @@
 package com.example.cryptoadvisor3
 
 data class CryptoCurrency(
+    val id: String,
     val name: String,
-    val price: String,
-    val id: String
+    val image: String,
+    val current_price: Double
 )
