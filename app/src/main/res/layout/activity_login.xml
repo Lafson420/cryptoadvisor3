@@ -74,6 +74,18 @@
             app:backgroundTint="#7B2FF7"
             android:layout_marginTop="8dp" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="ZALOGUJ SIĘ PRZEZ GOOGLE"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"
+            app:backgroundTint="#DB4437"
+            android:layout_marginTop="12dp" />
+
+
         <!-- Tekst rejestracji -->
         <TextView
             android:id="@+id/textRegister"

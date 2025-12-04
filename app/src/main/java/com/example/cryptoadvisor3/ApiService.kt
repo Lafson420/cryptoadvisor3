@@ -7,7 +7,6 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    // 📊 Pobiera listę topowych kryptowalut
     @GET("coins/markets")
     fun getTopCoins(
         @Query("vs_currency") currency: String,
@@ -17,13 +16,11 @@ interface ApiService {
         @Query("sparkline") sparkline: Boolean = false
     ): Call<List<CoinListItem>>
 
-    // 🔍 Szukanie kryptowalut po nazwie (np. "pepe")
     @GET("search")
     fun searchCoins(
         @Query("query") query: String
     ): Call<SearchResponse>
 
-    // 📈 Pobiera dane do wykresu konkretnej kryptowaluty
     @GET("coins/{id}/market_chart")
     fun getMarketChart(
         @Path("id") id: String,

@@ -138,12 +138,11 @@ class AddCryptoActivity : AppCompatActivity() {
 
             val coin = selectedCoin!!
 
-            // wyciągamy numeryczne ID ikonki z pola image
             val imageId = extractImageId(coin.image)
 
             val intent = Intent()
-            intent.putExtra("id", coin.id)                // tekstowe id, np. "bitcoin"
-            intent.putExtra("imageId", imageId)           // numeryczne id obrazka
+            intent.putExtra("id", coin.id)
+            intent.putExtra("imageId", imageId)
             intent.putExtra("name", coin.name)
             intent.putExtra("symbol", coin.symbol)
             intent.putExtra("amount", amount)

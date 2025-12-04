@@ -6,20 +6,29 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class RegisterActivity : AppCompatActivity() {
+
+    private lateinit var auth: FirebaseAuth
+    private lateinit var editEmail: EditText
+    private lateinit var editPassword: EditText
+    private lateinit var editConfirmPassword: EditText
+    private lateinit var buttonRegister: Button
+    private lateinit var buttonBackToLogin: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        val editEmail = findViewById<EditText>(R.id.editTextRegisterEmail)
-        val editPassword = findViewById<EditText>(R.id.editTextRegisterPassword)
-        val editConfirmPassword = findViewById<EditText>(R.id.editTextConfirmPassword)
-        val buttonRegister = findViewById<Button>(R.id.buttonRegister)
-        val buttonBackToLogin = findViewById<Button>(R.id.buttonBackToLogin)
+        auth = FirebaseAuth.getInstance()
 
-        // 🔹 Rejestracja
+        editEmail = findViewById(R.id.editTextRegisterEmail)
+        editPassword = findViewById(R.id.editTextRegisterPassword)
+        editConfirmPassword = findViewById(R.id.editTextConfirmPassword)
+        buttonRegister = findViewById(R.id.buttonRegister)
+        buttonBackToLogin = findViewById(R.id.buttonBackToLogin)
+
         buttonRegister.setOnClickListener {
             val email = editEmail.text.toString().trim()
             val password = editPassword.text.toString()
@@ -35,17 +44,20 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            Toast.makeText(this, "Rejestracja zakończona sukcesem!", Toast.LENGTH_SHORT).show()
-
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
+            auth.createUserWithEmailAndPassword(email, password)
+                .addOnSuccessListener {
+                    Toast.makeText(this, "Rejestracja zakończona!", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, LoginActivity::class.java))
+                    finish()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(this, "Błąd rejestracji: ${it.message}", Toast.LENGTH_LONG).show()
+                }
         }
 
-        // 🔹 Powrót do logowania
+        // ✅ POWRÓT DO LOGOWANIA
         buttonBackToLogin.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
     }

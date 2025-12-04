@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "979721311354",
+    "project_id": "cryptoadvisor-a2950",
+    "storage_bucket": "cryptoadvisor-a2950.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:979721311354:android:d235a47c212cb13efd57c3",
+        "android_client_info": {
+          "package_name": "com.example.cryptoadvisor3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "979721311354-k4j5ohdbql8aqi27cipb40qqt6gvktba.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cryptoadvisor3",
+            "certificate_hash": "a1b5aaffd6da6e9fd58e27d6a08210b18b6df2e4"
+          }
+        },
+        {
+          "client_id": "979721311354-oajevinel06ju4eabjpjsie7bs5up505.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrR4w2Gh34PH8q5wl9jRL-ipYTcat1HOc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "979721311354-oajevinel06ju4eabjpjsie7bs5up505.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
